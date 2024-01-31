@@ -1,0 +1,9 @@
+{
+    "name": "parameterized-blueprints",
+    "version": "1.0.0",
+    "title": "Parameterized Blueprints",
+    "author": "Bean",
+    "description": "Allows the placement of blueprints with slight modifications",
+    "factorio_version": "1.1",
+    "dependencies": ["base >= 1.1"]
+}
