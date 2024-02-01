@@ -21,3 +21,5 @@ Once you have selected all the replacements you wish to perform, press the "Crea
 
 ## Known Issues
 An adjusted blueprint that originated from the blueprint library will not have any tiles (API limitation) The original blueprint is not modified
+
+I am not an artist and I know the icons don't look great. If someone is willing to contribute icons then feel free!
