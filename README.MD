@@ -19,7 +19,11 @@ Leaving any item/fluid slots blank will mean that the placeholder will be remove
 
 Once you have selected all the replacements you wish to perform, press the "Create Blueprint" button. This will push the modified blueprint into your paste history and select it.
 
+## Compatible Buildings
+As far as I know all of them are handled If you find a case where the placeholder isn't overwritten let me know in the mod discussions/github issues
+
 ## Known Issues
 An adjusted blueprint that originated from the blueprint library will not have any tiles (API limitation) The original blueprint is not modified
+Sometimes a fluid signal will get used somewhere were only items are relevant (e.g. belt connected to the logistics network), this will not cause a crash but the condition will never be met
 
 I am not an artist and I know the icons don't look great. If someone is willing to contribute icons then feel free!
