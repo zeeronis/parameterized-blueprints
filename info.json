@@ -1,6 +1,6 @@
 {
     "name": "parameterized-blueprints",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Parameterized Blueprints",
     "author": "Bean",
     "description": "Allows the placement of blueprints with slight modifications",
