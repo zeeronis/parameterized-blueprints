@@ -21,7 +21,7 @@ end)
 
 script.on_event(defines.events.on_player_cursor_stack_changed, function (event)
     local player = game.players[event.player_index]
-    player.print("cursor stack changed")
+    
     local blueprint = blueprints.get_held_blueprint(player)
 
     if blueprint == nil then
