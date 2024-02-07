@@ -1,4 +1,7 @@
 require("prototypes.sprites")
 require("prototypes.groups")
 require("prototypes.recipes")
+require("prototypes.entities")
 require("prototypes.items")
+require("prototypes.shortcuts")
+require("prototypes.technology")

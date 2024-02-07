@@ -1,5 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 07.02.2024
+  Gui:
+    - Filling in all fields will now simulate clicking the create blueprint button. This can be disabled per-player in the settings.
+  Major Features:
+    - Added a new constant combinator variant. All placeholder items set in this combinator will have their count set to the stack size of the item.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 01.02.2024
+  Bugfixes:
+    - Allowed placeholder recipes to use productivity modules.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
-Date: 01. 02. 2024
+Date: 01.02.2024
   Info:
     - Updated Thumbnail.

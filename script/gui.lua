@@ -150,17 +150,9 @@ gui.create_parameter_option = function (root, index)
 end
 
 gui.handle_select_signal_button_changed = function (event)
-    -- only filter out signals on target recipe and target item buttons
-    if event.element.name == "target_recipe_button" or event.element.name == "target_item_button" then
-        -- handle signals input
-        if event.element.elem_value and event.element.elem_value.type == "virtual" then
-            event.element.elem_value = nil
-            game.players[event.player_index].print("signals are not valid here (these cannot be hidden from the ui)")
-        end
-    end
-
     -- only allow target_item_button to continue
     if event.element.name ~= "target_item_button" then
+        gui.confirm_selection_if_all_are_set(event.player_index)
         return
     end
 
@@ -183,6 +175,8 @@ gui.handle_select_signal_button_changed = function (event)
     else
         recipe_button.visible = false
     end
+
+    gui.confirm_selection_if_all_are_set(event.player_index)
 end
 
 gui.set_recipe_filters = function (signal, recipe_button, type)
@@ -248,5 +242,52 @@ gui.get_changes_from_ui = function (player_index)
 
     return changes
 end
+
+gui.confirm_selection = function(player_index)
+    local player = game.players[player_index]
+    local changes = gui.get_changes_from_ui(player_index)
+    blueprints.backfill_changes(changes)
+    local base_blueprint = globalstore.get_value(player_index, "last_selected_blueprint")
+    local modified_blueprint = blueprints.modify_blueprint(base_blueprint, changes)
+    blueprints.give_player_blueprint(player, modified_blueprint)
+    gui.close_options_gui(player_index)
+end
+
+gui.confirm_selection_if_all_are_set = function (player_index)
+    -- check settings to see if we should continue
+    if not settings.player["parameterized-blueprints-use-quick-blueprint-confirm"] then
+        return
+    end
+    
+    -- check if all are set, if so then confirm blueprint
+    local content_flow = globalstore.get_value(player_index, "options_gui")["frame"][gui.options_content_flow_name]
+    for _, entry in ipairs(content_flow.children) do
+        -- don't check for visiblity - will need to grab value stored here even if it's not visible
+        local recipe_button = entry["target_recipe_button"]
+        local item_button = entry["target_item_button"]
+
+        -- if any elements are not set then don't do it
+        if item_button.elem_value == nil then
+            return
+        end
+
+        -- skip to next if the recipe button is not visible
+        if not recipe_button.visible then
+            goto continue
+        end
+
+        -- if the recipe button is visible but not set then don't do it
+        if recipe_button.elem_value == nil then
+            return
+        end
+
+        ::continue::
+    end
+
+    -- if all checks pass then confirm the selection
+    game.players[player_index].print("blueprint confirmed!")
+    gui.confirm_selection(player_index)
+end
+
 
 return gui

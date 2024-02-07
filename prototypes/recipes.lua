@@ -1,3 +1,4 @@
+require("__core__/lualib/util")
 
 -- global recipe category
 data:extend({
@@ -27,3 +28,8 @@ end
 for i = 0, 9, 1 do
     add_recipe_placeholder(i)
 end
+
+local combinator_recipe = util.table.deepcopy(data.raw["recipe"]["constant-combinator"])
+combinator_recipe.name = "placeholder-stack-size-combinator"
+combinator_recipe.result = "placeholder-stack-size-combinator"
+data:extend({ combinator_recipe })

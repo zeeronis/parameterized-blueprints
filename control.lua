@@ -9,13 +9,7 @@ script.on_event(defines.events.on_gui_click, function (event)
     end
 
     if event.element.name == gui.confirm_parameters_button_name then
-        local player = game.players[event.player_index]
-        local changes = gui.get_changes_from_ui(event.player_index)
-        blueprints.backfill_changes(changes)
-        local base_blueprint = globalstore.get_value(event.player_index, "last_selected_blueprint")
-        local modified_blueprint = blueprints.modify_blueprint(base_blueprint, changes)
-        blueprints.give_player_blueprint(player, modified_blueprint)
-        gui.close_options_gui(event.player_index)
+        gui.confirm_selection(event.player_index)
     end
 end)
 
@@ -42,3 +36,7 @@ script.on_event(defines.events.on_player_cursor_stack_changed, function (event)
 end)
 
 script.on_event(defines.events.on_gui_elem_changed, gui.handle_select_signal_button_changed)
+
+script.on_event("parameterized-blueprints-confirm-shortcut", function(event)
+    gui.confirm_selection(event.player_index)
+end)

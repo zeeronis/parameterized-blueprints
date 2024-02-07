@@ -74,7 +74,7 @@ entities.check_for_placeholder_values = function (entity, info)
         -- constant combinator
         if behavior.filters then
             for _, filter in ipairs(behavior.filters) do
-                if entities.check_name(filter.signal.name, info) then return end
+                entities.check_name(filter.signal.name, info)
             end
         end
 
@@ -141,7 +141,14 @@ entities.replace_placeholder_value = function (entity, changes)
         if behavior.filters then
             for _, filter in ipairs(behavior.filters) do
                 local name = entities.is_placeholder_name(filter.signal.name)
-                if name then filter.signal = changes.signals[name] end
+                if name then
+                    filter.signal = changes.signals[name]
+
+                    -- if the value is an item and the target is a stack size constant combinator then override the stack size
+                    if changes.signals[name].type == "item" and entity.name == "placeholder-stack-size-combinator" then
+                        filter.count = game.item_prototypes[changes.items[name]].stack_size
+                    end
+                end
             end
         end
 

@@ -1,3 +1,4 @@
+require("__core__/lualib/util")
 
 -- placeholders 1 - 10
 local function add_placeholder_item(index)
@@ -14,3 +15,8 @@ end
 for i = 0, 9, 1 do
     add_placeholder_item(i)
 end
+
+local combinator_item = util.table.deepcopy(data.raw["item"]["constant-combinator"])
+combinator_item.name = "placeholder-stack-size-combinator"
+combinator_item.place_result = "placeholder-stack-size-combinator"
+data:extend({combinator_item})
