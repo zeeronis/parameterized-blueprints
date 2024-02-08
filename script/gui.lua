@@ -150,6 +150,10 @@ gui.create_parameter_option = function (root, index)
 end
 
 gui.handle_select_signal_button_changed = function (event)
+    if event.element.name ~= "target_item_button" and event.element.name ~= "target_recipe_button" then
+        return
+    end
+
     -- only allow target_item_button to continue
     if event.element.name ~= "target_item_button" then
         gui.confirm_selection_if_all_are_set(event.player_index)
