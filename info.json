@@ -1,6 +1,6 @@
 {
     "name": "parameterized-blueprints",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "title": "Parameterized Blueprints",
     "author": "Bean",
     "description": "Implements a simplified version of the Parameterized Blueprints shown in FFF-392",

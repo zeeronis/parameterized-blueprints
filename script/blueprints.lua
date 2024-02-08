@@ -11,7 +11,7 @@ blueprints.get_held_blueprint = function (player)
 
     -- if the held item is a blueprint (item variant) then check if it's setup before doing anything with it
     if player.cursor_stack.valid_for_read then
-        if not player.cursor_stack.is_blueprint_setup() then
+        if player.cursor_stack.type == "blueprint" and not player.cursor_stack.is_blueprint_setup() then
             return nil
         end
     end
@@ -30,7 +30,11 @@ blueprints.get_held_blueprint = function (player)
 
     if blueprint.is_item then
         blueprint.item = player.cursor_stack
-        blueprint.tiles = player.cursor_stack.get_blueprint_tiles()
+
+        -- check if it's an item first - if it's from a book then get_blueprint_tiles is invalid
+        if blueprint.item.type == "blueprint" then
+            blueprint.tiles = player.cursor_stack.get_blueprint_tiles()
+        end
     end
 
     return blueprint
