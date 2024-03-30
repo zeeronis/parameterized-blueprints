@@ -250,6 +250,9 @@ end
 gui.confirm_selection = function(player_index)
     local player = game.players[player_index]
     local changes = gui.get_changes_from_ui(player_index)
+
+    if changes == nil then return end
+
     blueprints.backfill_changes(changes)
     local base_blueprint = globalstore.get_value(player_index, "last_selected_blueprint")
     local modified_blueprint = blueprints.modify_blueprint(base_blueprint, changes)
