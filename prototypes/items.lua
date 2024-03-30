@@ -5,7 +5,7 @@ local function add_placeholder_item(index)
     data:extend({{
         type = "item",
         name = "placeholder-" .. index,
-        icon = "__parameterized-blueprints__/graphics/placeholder-" .. index .. ".png",
+        icon = "__parameterized-blueprints-zee__/graphics/placeholder-" .. index .. ".png",
         icon_size = 32,
         subgroup = "parameters-items",
         stack_size = 1,

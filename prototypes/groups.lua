@@ -3,7 +3,7 @@ data:extend({
         type = "item-group",
         name = "parameters",
         order = "p",
-        icon = "__parameterized-blueprints__/graphics/placeholder.png",
+        icon = "__parameterized-blueprints-zee__/graphics/placeholder.png",
         icon_size = 32,
     },
     {
