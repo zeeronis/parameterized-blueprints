@@ -65,6 +65,8 @@ end
 blueprints.modify_blueprint = function (base_blueprint, changes)
     local result = util.table.deepcopy(base_blueprint)
 
+    if result == nil then return end
+
     for _, entity in pairs(result.entities) do
         entities.replace_placeholder_value(entity, changes)
     end
@@ -73,6 +75,9 @@ blueprints.modify_blueprint = function (base_blueprint, changes)
 end
 
 blueprints.give_player_blueprint = function (player, blueprint)
+
+    if blueprint == nil then return end
+
     local temp_inventory = game.create_inventory(1)
     local blueprint_item = temp_inventory[1]
     blueprint_item.set_stack({name = "blueprint"})
@@ -87,6 +92,9 @@ blueprints.give_player_blueprint = function (player, blueprint)
 end
 
 blueprints.backfill_changes = function (changes)
+
+    if changes == nil then return end
+
     for i = 0, 9, 1 do
         local name = "placeholder-" .. i
         if changes.recipes[name] == nil then
