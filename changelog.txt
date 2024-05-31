@@ -1,13 +1,18 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.5
+Version: 1.0.7
+Date: 31.05.2024
+  Bugfixes:
+    - Added compatibility with Editor Extensions for productivity modules.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5-1.0.6
 Date: 30.03.2024
   Bugfixes:
-    - Fixed a crash when pressing shortcut hotkey
+    - Fixed a crash when pressing shortcut hotkey.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 08.02.2024
   Bugfixes:
-    - Fixed a crash related to holding blueprint books
+    - Fixed a crash related to holding blueprint books.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 07.02.2024

@@ -1,9 +1,9 @@
 {
     "name": "parameterized-blueprints-zee",
-    "version": "1.0.6",
-    "title": "Parameterized Blueprints - Fix shortcut crash",
+    "version": "1.0.7",
+    "title": "Parameterized Blueprints - Fix some crashes",
     "author": "Bean & zeeronis",
     "description": "Implements a simplified version of the Parameterized Blueprints shown in FFF-392",
     "factorio_version": "1.1",
-    "dependencies": ["base >= 1.1"]
+    "dependencies": ["base >= 1.1", "! parameterized-blueprints"]
 }
